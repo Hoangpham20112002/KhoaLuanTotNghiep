@@ -66,8 +66,7 @@ const Page = () => {
     if (pathname === "/checkout" && lineItems.length > 0) {
       //calTotal(lineItems) + calTotal(lineItems) * 0.1
       setUrl(
-        `https://qr.sepay.vn/img?bank=ACB&acc=37731017&&template=compact&amount=${"2000"}&des=MaKH${
-          lineItems[0].userId
+        `https://qr.sepay.vn/img?bank=ACB&acc=37731017&&template=compact&amount=${"2000"}&des=MaKH${lineItems[0].userId
         }MaCourse${lineItems[0].courseId}THANHTOAN`
       );
     }
@@ -157,29 +156,6 @@ const Page = () => {
                 >
                   {({ errors, touched, handleChange }) => (
                     <Form>
-                      {/* Billing Address */}
-                      <Card sx={{ marginBottom: 3 }}>
-                        <CardContent>
-                          <Typography variant="h6" gutterBottom>
-                            Địa chỉ thanh toán
-                          </Typography>
-                          <Field
-                            as={Select}
-                            name="country"
-                            fullWidth
-                            sx={{ mt: "20px" }}
-                            onChange={handleChange}
-                            error={touched.country && Boolean(errors.country)}
-                          >
-                            {countries.map((country) => (
-                              <MenuItem key={country} value={country}>
-                                {country}
-                              </MenuItem>
-                            ))}
-                          </Field>
-                        </CardContent>
-                      </Card>
-
                       {/* Payment Method */}
                       <Card sx={{ marginBottom: 3 }}>
                         <CardContent>
@@ -192,10 +168,11 @@ const Page = () => {
                           <div style={{ display: "flex", alignItems: "center" }}>
                             <img src={url} width={"200px"} />
                             <div style={{ display: "flex", flexDirection: "column" }}>
-                              <span style={{ fontSize: "18px" }}>Tên chủ TK: THAI QUANG BAO</span>
-                              <span className="font-medium text-[14px]">Số TK: 37731017 </span>
+                              <span style={{ fontSize: "18px" }}>Ngân hàng: ACB </span>
+                              <span style={{ fontSize: "18px" }}>Tên tài khoản: THAI QUANG BAO</span>
+                              <span className="font-medium text-[14px]">Số tài khoản: 37731017 </span>
                               <span className="rounded-md text-[14px]">
-                                Sử dụng app Momo hoặc app Ngân hàng để thanh toán
+                                Sử dụng app MoMo hoặc app ngân hàng để quét mã QR tiến hành thanh toán khoá học
                               </span>
                               {/* <span className='rounded-md text-[14px]'>Khóa Học {course.title} - {formatMoney(course.price)}đ</span> */}
                             </div>
@@ -204,8 +181,8 @@ const Page = () => {
                       </Card>
 
                       {/* <Button type="submit" variant="contained" color="primary" fullWidth>
-                        Tiếp theo
-                      </Button> */}
+        Tiếp theo
+      </Button> */}
                     </Form>
                   )}
                 </Formik>

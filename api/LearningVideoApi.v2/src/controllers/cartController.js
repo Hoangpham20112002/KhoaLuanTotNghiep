@@ -12,7 +12,7 @@ exports.addToCart = async (req, res, next) => {
         if (_.isEmpty(req.body)) {
             throw new AppException("Invalid body. Request body is empty");
         }
-
+        
         if (!courseId) {
             throw new AppException("Invalid body. Missing courseId");
         }
@@ -22,7 +22,7 @@ exports.addToCart = async (req, res, next) => {
         if (!course) {
             throw new AppException("Course not found");
         }
-
+        
         const availableCart = await cartModel.findOne({
             courseId: course._id,
             userId: loggingUserId,

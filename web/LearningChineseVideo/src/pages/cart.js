@@ -139,7 +139,7 @@ const Page = () => {
                                 }
                             </Box>
 
-                            <TextField label="Nhập mã giảm giá" fullWidth sx={{ marginBottom: 2 }} />
+
                             <Button
                                 href='/checkout'
                                 disabled={_.isEmpty(lineItems)}
