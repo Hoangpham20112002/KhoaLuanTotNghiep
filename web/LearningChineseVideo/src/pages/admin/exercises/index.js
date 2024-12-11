@@ -16,11 +16,11 @@ import { useEffect, useState } from "react";
 import GridTeacherEX2 from "src/components/teacher/grid-excercise-2";
 import GridTeacherEX3 from "src/components/teacher/grid-excercise-3";
 import GridTeacherEX4 from "src/components/teacher/grid-excercise-4";
-import { Layout as TeacherLayout } from "src/layouts/teacher-layout/layout";
+import { Layout as AdminLayout } from "src/layouts/admin-layout/layout";
 import UpdateCourseDialog from "src/sections/course/update-course-dialog";
 import { getCourseById, getCourses } from "src/services/api/course-api";
 import { deleteExFromCourse, getExcerciseByLessonId } from "src/services/api/exercise-api";
-import { useAuth } from "src/hooks/use-auth";
+
 const Page = () => {
   const { enqueueSnackbar } = useSnackbar();
   const [courses, setCourses] = useState([]);
@@ -29,13 +29,13 @@ const Page = () => {
   const [lessons, setLessons] = useState([]);
   const [idLesson, setIdLesson] = useState();
   const [excercises, setExcercises] = useState([]);
-  const { getUser, user } = useAuth(); 
+
   useEffect(() => {
     getCourses()
       .then((res) => {
         console.log(res);
 
-        setCourses(res.filter((course) => course.authorId === user._id)); //sua o day
+        setCourses(res); //sua o day
       })
       .catch((err) => console.log(e))
       .finally(() => setLoading(false));
@@ -166,6 +166,6 @@ const Page = () => {
     </>
   );
 };
-Page.getLayout = (page) => <TeacherLayout>{page}</TeacherLayout>;
+Page.getLayout = (page) => <AdminLayout>{page}</AdminLayout>;
 
 export default Page;

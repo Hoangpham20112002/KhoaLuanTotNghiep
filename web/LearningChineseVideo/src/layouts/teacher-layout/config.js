@@ -35,15 +35,6 @@ export const items = [
     ),
   },
   {
-    title: "Đăng tải video",
-    path: "/teacher/upload-video",
-    icon: (
-      <SvgIcon fontSize="small">
-        <UploadIcon />
-      </SvgIcon>
-    ),
-  },
-  {
     title: "Đăng tải bài tập",
     path: "/teacher/upload-exercise",
     icon: (
@@ -60,14 +51,5 @@ export const items = [
         <ListIcon />
       </SvgIcon>
     ),
-  },
-  {
-    title: "Đăng tải từ điển",
-    path: "/teacher/dictionary",
-    icon: (
-      <SvgIcon fontSize="small">
-        <TranslateIcon />
-      </SvgIcon>
-    ),
-  },
+  }
 ];

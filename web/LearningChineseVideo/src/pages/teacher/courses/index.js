@@ -17,19 +17,21 @@ import GridTeacherCourseCard from "src/components/teacher/grid-course-teacher-ca
 import { Layout as TeacherLayout } from "src/layouts/teacher-layout/layout";
 import UpdateCourseDialog from "src/sections/course/update-course-dialog";
 import { deleteCourse, getCourses, requestCourse } from "src/services/api/course-api";
+import { useAuth } from "src/hooks/use-auth";
 const Page = () => {
   const { enqueueSnackbar } = useSnackbar();
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(false);
   const [editingCourse, setEditingCourse] = useState(null);
   const [selectedRole, setSelectedRole] = useState("");
+  const { getUser, user } = useAuth(); 
   const fetchCourses = () => {
     setLoading(true);
     getCourses()
-      .then((res) => {
-        console.log(res);
+      .then((res) => { 
+      
 
-        setCourses(res);
+        setCourses(res.filter((course) => course.authorId === user._id));//sua o day
       })
       .catch((err) => console.log(e))
       .finally(() => setLoading(false));
@@ -56,7 +58,7 @@ const Page = () => {
             horizontal: "right",
           },
         });
-      });
+      }); 
   };
   const requestByCourse = (id) => {
     requestCourse(id)

@@ -5,6 +5,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import TranslateIcon from "@mui/icons-material/Translate";
 import UploadIcon from "@mui/icons-material/Upload";
 import { SvgIcon } from "@mui/material";
+import ListIcon from "@mui/icons-material/List";
 export const items = [
   {
     title: "Thống kê doanh thu",
@@ -42,6 +43,16 @@ export const items = [
       </SvgIcon>
     ),
   },
+  
+  {
+    title: "Danh sách bài tập",
+    path: "/admin/exercises", // sua o day
+    icon: (
+      <SvgIcon fontSize="small">
+        <ListIcon />
+      </SvgIcon>
+    ),
+  },
   {
     title: "Đăng tải video",
     path: "/admin/upload-video",
@@ -60,4 +71,6 @@ export const items = [
       </SvgIcon>
     ),
   },
+  
+
 ];
